@@ -146,8 +146,8 @@ strong { font-weight: 700; }
   background: linear-gradient(
     120deg,
     rgba(15,10,30,.97) 0%,
-    rgba(15,10,30,.92) 55%,
-    rgba(92,33,182,.70) 100%
+    rgba(15,10,30,.95) 60%,
+    rgba(92,33,182,.90) 100%
   );
 }
 
