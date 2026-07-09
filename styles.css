@@ -144,10 +144,10 @@ strong { font-weight: 700; }
 .hero__overlay {
   position: absolute; inset: 0;
   background: linear-gradient(
-    105deg,
-    rgba(15,10,30,.90) 0%,
-    rgba(15,10,30,.80) 50%,
-    rgba(15,10,30,.65) 100%
+    120deg,
+    rgba(15,10,30,.97) 0%,
+    rgba(15,10,30,.92) 55%,
+    rgba(92,33,182,.70) 100%
   );
 }
 
@@ -400,9 +400,9 @@ strong { font-weight: 700; }
   position: absolute; inset: 0;
   background: linear-gradient(
     to right,
-    rgba(15,10,30,.92) 0%,
-    rgba(15,10,30,.80) 50%,
-    rgba(15,10,30,.55) 100%
+    rgba(15,10,30,.96) 0%,
+    rgba(15,10,30,.88) 55%,
+    rgba(15,10,30,.65) 100%
   );
 }
 .author-section__content {
