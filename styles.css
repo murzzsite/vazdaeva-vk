@@ -253,6 +253,14 @@ a { text-decoration: none; color: inherit; }
     0 0 120px rgba(124,58,237,.25);
   display: block;
 }
+/* Subtle vignette so image doesn't bleed into left text */
+.hero__cover::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(to right, rgba(15,10,30,.35) 0%, transparent 40%);
+  pointer-events: none;
+}
 
 /* Floating chips on cover */
 .hero__chip {
@@ -606,8 +614,9 @@ a { text-decoration: none; color: inherit; }
   .burger { display: flex; }
 
   .hero { padding: 90px 0 64px; }
-  .hero__inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero__right { order: -1; }
+  .hero__inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero__right { order: 1; }
+  .hero__cover-img { max-height: 340px; object-fit: cover; object-position: top; }
   .hero__chip--1 { top: -12px; right: -4px; }
   .hero__chip--2 { bottom: -12px; left: -4px; }
 
