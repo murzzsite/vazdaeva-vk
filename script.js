@@ -4,22 +4,26 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Sticky header
+  // Header: dark on hero, light on scroll
   const header = document.getElementById('header');
-  const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 8);
+  const onScroll = () => {
+    const past = window.scrollY > 60;
+    header?.classList.toggle('header--dark', !past);
+    header?.classList.toggle('header--light', past);
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   // Burger
   const burger = document.getElementById('burger');
-  const nav = document.getElementById('nav');
+  const navMob = document.getElementById('navMob');
   burger?.addEventListener('click', () => {
     burger.classList.toggle('is-open');
-    nav.classList.toggle('is-open');
+    navMob?.classList.toggle('open');
   });
-  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    burger.classList.remove('is-open');
-    nav.classList.remove('is-open');
+  navMob?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger?.classList.remove('is-open');
+    navMob.classList.remove('open');
   }));
 
   // Form → Cloudflare Worker → Telegram
@@ -28,21 +32,16 @@
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const orig = btn.textContent;
-
     const fd = new FormData(form);
     const payload = {};
     fd.forEach((v, k) => { payload[k] = v; });
-
     if (payload._gotcha) return;
-
     if (!payload.name || !payload.contact) {
       alert('Заполните имя и контактные данные');
       return;
     }
-
     btn.disabled = true;
-    btn.textContent = 'Отправляем...';
-
+    btn.textContent = 'Отправляем…';
     try {
       const resp = await fetch(LEAD_ENDPOINT, {
         method: 'POST',
@@ -50,13 +49,13 @@
         body: JSON.stringify(payload),
       });
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      btn.textContent = 'Заявка отправлена ✓';
+      btn.textContent = '✓ Заявка отправлена';
       form.reset();
     } catch (err) {
       console.error(err);
-      btn.textContent = 'Ошибка, попробуйте ещё раз';
+      btn.textContent = 'Ошибка — попробуй ещё раз';
     } finally {
-      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3500);
     }
   });
 
@@ -68,36 +67,16 @@
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - 72;
+      const top = target.getBoundingClientRect().top + window.scrollY - 68;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
   // Reveal on scroll
-  const targets = document.querySelectorAll('.fw-card, .result-item, .module, .format-card, .price-card, .review, .author__photo, .author__content, .form, .contact__text');
-  targets.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  targets.forEach(el => io.observe(el));
-
-  // Counters
-  const counters = document.querySelectorAll('[data-target]');
-  const countIO = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = parseInt(el.dataset.target, 10);
-      if (Number.isNaN(target)) return;
-      const dur = 1100, start = performance.now();
-      const tick = t => {
-        const p = Math.min(1, (t - start) / dur);
-        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      countIO.unobserve(el);
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.4 });
-  counters.forEach(el => countIO.observe(el));
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();

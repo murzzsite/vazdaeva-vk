@@ -7,19 +7,19 @@
   <meta name="description" content="Пошаговый курс по таргетированной рекламе, упаковке профиля и запуску воронки продаж во ВКонтакте. С нуля до первых заявок." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="header" id="header">
+  <header class="header header--dark" id="header">
     <div class="container header__inner">
       <div class="logo">
-        <span class="logo__vk">VK</span>
-        <span class="logo__text">Важдаева Анна</span>
+        <span class="logo-vk">VK</span>
+        <span class="logo-name">Важдаева Анна</span>
       </div>
-      <nav class="nav" id="nav">
+      <nav class="nav">
         <a href="#about">О курсе</a>
         <a href="#program">Программа</a>
         <a href="#pricing">Стоимость</a>
@@ -32,140 +32,168 @@
     </div>
   </header>
 
+  <!-- Mobile nav -->
+  <nav class="nav-mob" id="navMob">
+    <a href="#about">О курсе</a>
+    <a href="#program">Программа</a>
+    <a href="#pricing">Стоимость</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contact">Записаться</a>
+  </nav>
+
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero__bg">
-      <img src="program2.jpg" alt="" class="hero__bg-img" />
-      <div class="hero__overlay"></div>
-    </div>
     <div class="container hero__inner">
-      <div class="hero__content">
-        <p class="hero__eyebrow">Онлайн-курс · 2026</p>
+
+      <div class="hero__left">
+        <div class="hero__eyebrow">Онлайн-курс · обновлён 2026</div>
         <h1 class="hero__title">
           Специалист<br/>по продвижению<br/><em>ВКонтакте</em>
         </h1>
-        <p class="hero__sub">С нуля до первых заявок — таргет, воронка, упаковка</p>
-        <div class="hero__pills">
-          <span class="pill">🎯 Реклама с нуля</span>
-          <span class="pill">⚡ Воронка в Senler</span>
-          <span class="pill">💬 Личная поддержка</span>
+        <p class="hero__sub">
+          Пошаговый курс — таргет, воронка в Senler, упаковка профиля. С нуля до первых заявок без воды и лишней теории.
+        </p>
+        <div class="hero__perks">
+          <div class="hero__perk">
+            <div class="hero__perk-icon">🎯</div>
+            <span>С нуля до первых заявок за результат</span>
+          </div>
+          <div class="hero__perk">
+            <div class="hero__perk-icon">⚡</div>
+            <span>Таргет + воронка + упаковка — в одном курсе</span>
+          </div>
+          <div class="hero__perk">
+            <div class="hero__perk-icon">💬</div>
+            <span>Личная поддержка автора в чате</span>
+          </div>
         </div>
-        <div class="hero__cta">
-          <a href="#contact" class="btn btn--primary btn--lg">Получить доступ к курсу</a>
-          <p class="hero__hint">от <s>34 900 ₽</s> <strong>3 490 ₽</strong> · бессрочно</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn-white btn-lg">Получить доступ к курсу →</a>
+          <p class="hero__price">от <s>34 900 ₽</s> &nbsp;<strong>3 490 ₽</strong> · бессрочно</p>
         </div>
       </div>
+
+      <div class="hero__right">
+        <div class="hero__cover">
+          <img src="program.jpg" alt="Программа курса" class="hero__cover-img" />
+          <div class="hero__chip hero__chip--1">
+            <div class="hero__chip-dot"></div>
+            Доступ навсегда
+          </div>
+          <div class="hero__chip hero__chip--2">
+            <span>📜</span>
+            Сертификат выпускника
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="hero__scroll-hint">↓</div>
   </section>
 
-  <!-- ===== STATS BAR ===== -->
-  <div class="stats-bar">
-    <div class="container stats-bar__inner">
-      <div class="stat"><strong>8</strong><span>модулей</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><strong>100+</strong><span>выпускников</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><strong>♾️</strong><span>доступ навсегда</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><strong>0</strong><span>дедлайнов</span></div>
+  <!-- ===== STATS ===== -->
+  <div class="stats">
+    <div class="stats__inner">
+      <div class="stat-box"><strong>8</strong><span>модулей</span></div>
+      <div class="stat-box"><strong>100+</strong><span>выпускников</span></div>
+      <div class="stat-box"><strong>♾️</strong><span>навсегда</span></div>
+      <div class="stat-box"><strong>0</strong><span>дедлайнов</span></div>
     </div>
   </div>
 
   <!-- ===== FOR WHOM ===== -->
-  <section class="section" id="forwhom">
+  <section class="sec" id="forwhom">
     <div class="container">
-      <p class="eyebrow">Для кого</p>
-      <h2 class="heading">Этот курс для тебя, если ты…</h2>
-      <div class="fw-grid">
-        <div class="fw-card reveal">
-          <span class="fw-num">01</span>
+      <div class="tag tag--light">Для кого</div>
+      <h2 class="h2">Этот курс для тебя, если…</h2>
+      <div class="fw-list">
+        <div class="fw-item reveal">
+          <span class="fw-n">01</span>
           <p>Хочешь начать <strong>зарабатывать во ВКонтакте</strong> и не знаешь с чего начать</p>
         </div>
-        <div class="fw-card reveal">
-          <span class="fw-num">02</span>
+        <div class="fw-item reveal">
+          <span class="fw-n">02</span>
           <p>Хочешь освоить <strong>таргетированную рекламу</strong> с нуля и брать клиентов</p>
         </div>
-        <div class="fw-card reveal">
-          <span class="fw-num">03</span>
+        <div class="fw-item reveal">
+          <span class="fw-n">03</span>
           <p>Хочешь <strong>продвигать свой проект</strong> или услугу через ВКонтакте</p>
         </div>
-        <div class="fw-card reveal">
-          <span class="fw-num">04</span>
+        <div class="fw-item reveal">
+          <span class="fw-n">04</span>
           <p>Устал(а) от <strong>«сложных и непонятных»</strong> обучений без результата</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHAT YOU GET ===== -->
-  <section class="section section--gray" id="about">
+  <!-- ===== RESULTS ===== -->
+  <section class="sec sec--off" id="about">
     <div class="container">
-      <p class="eyebrow">Чему ты научишься</p>
-      <h2 class="heading">Система, которую<br/>применяешь сразу</h2>
-      <div class="results-grid">
-        <div class="result-card reveal"><span class="result-n">01</span><p>Оформлять страницу или сообщество ВКонтакте <strong>под продажи</strong></p></div>
-        <div class="result-card reveal"><span class="result-n">02</span><p>Упаковывать профиль так, чтобы он <strong>продавал сам</strong></p></div>
-        <div class="result-card reveal"><span class="result-n">03</span><p>Настраивать <strong>воронку продаж</strong> через Senler</p></div>
-        <div class="result-card reveal"><span class="result-n">04</span><p>Выстраивать <strong>автоматические цепочки</strong> сообщений</p></div>
-        <div class="result-card reveal"><span class="result-n">05</span><p>Запускать <strong>таргетированную рекламу</strong> ВКонтакте</p></div>
-        <div class="result-card reveal"><span class="result-n">06</span><p>Получать <strong>первые заявки</strong> без сложных схем</p></div>
-        <div class="result-card reveal"><span class="result-n">07</span><p>Работать с <strong>монетизацией и донатами</strong></p></div>
-        <div class="result-card reveal"><span class="result-n">08</span><p>Доводить клиента <strong>от просмотра до заявки</strong></p></div>
+      <div class="tag tag--light">Чему ты научишься</div>
+      <h2 class="h2">Система, которую<br/>применяешь сразу</h2>
+      <div class="results-wrap">
+        <div class="res-item reveal"><div class="res-n">01</div><p>Оформлять страницу или сообщество ВКонтакте <strong>под продажи</strong></p></div>
+        <div class="res-item reveal"><div class="res-n">02</div><p>Упаковывать профиль так, чтобы он <strong>продавал сам</strong></p></div>
+        <div class="res-item reveal"><div class="res-n">03</div><p>Настраивать <strong>воронку продаж</strong> через Senler</p></div>
+        <div class="res-item reveal"><div class="res-n">04</div><p>Выстраивать <strong>автоматические цепочки</strong> сообщений</p></div>
+        <div class="res-item reveal"><div class="res-n">05</div><p>Запускать <strong>таргетированную рекламу</strong> ВКонтакте</p></div>
+        <div class="res-item reveal"><div class="res-n">06</div><p>Получать <strong>первые заявки</strong> без сложных схем</p></div>
+        <div class="res-item reveal"><div class="res-n">07</div><p>Работать с <strong>монетизацией и донатами</strong></p></div>
+        <div class="res-item reveal"><div class="res-n">08</div><p>Доводить клиента <strong>от просмотра до заявки</strong></p></div>
       </div>
     </div>
   </section>
 
   <!-- ===== PROGRAM ===== -->
-  <section class="section" id="program">
+  <section class="sec" id="program">
     <div class="container">
-      <p class="eyebrow">Программа</p>
-      <h2 class="heading">8 модулей — от профиля<br/>до первых клиентов</h2>
-      <div class="modules-grid">
-        <div class="module reveal"><span class="module__tag">М1</span><div><h3>Вводный</h3><p>Настройка аккаунта, обзор функций и интерфейса ВКонтакте</p></div></div>
-        <div class="module reveal"><span class="module__tag">М2</span><div><h3>Создание сообщества</h3><p>Создание с нуля, оформление обложки, виджеты, Figma</p></div></div>
-        <div class="module reveal"><span class="module__tag">М3</span><div><h3>Senler и чат-боты</h3><p>Обновления 2026, чат-бот, аналитика, подключение</p></div></div>
-        <div class="module reveal"><span class="module__tag">М4</span><div><h3>Контент-маркетинг</h3><p>Виды контента, контент-план, планирование публикаций</p></div></div>
-        <div class="module reveal"><span class="module__tag">М5</span><div><h3>Продвижение</h3><p>Бесплатное продвижение — реальные способы без вложений</p></div></div>
-        <div class="module reveal"><span class="module__tag">М6</span><div><h3>Таргет</h3><p>Рекламный кабинет, бюджет, критерии, легальность</p></div></div>
-        <div class="module reveal"><span class="module__tag">М7</span><div><h3>Анализ кампаний</h3><p>Поведение аудитории, эффективная реклама, аналитика</p></div></div>
-        <div class="module reveal"><span class="module__tag">М8</span><div><h3>Анализ ЦА</h3><p>Target Hunter, офферы, продающие заголовки, вовлечение</p></div></div>
+      <div class="tag tag--light">Программа</div>
+      <h2 class="h2">8 модулей — от профиля<br/>до первых клиентов</h2>
+      <div class="mods">
+        <div class="mod reveal"><span class="mod__tag">М1</span><div><h3>Вводный</h3><p>Настройка аккаунта, обзор функций и интерфейса ВКонтакте</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">М2</span><div><h3>Создание сообщества</h3><p>Создание с нуля, обложка, виджеты, Figma</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">М3</span><div><h3>Senler и чат-боты</h3><p>Обновления 2026, чат-бот, аналитика, подключение</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">М4</span><div><h3>Контент-маркетинг</h3><p>Виды контента, контент-план, планирование публикаций</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">М5</span><div><h3>Продвижение</h3><p>Бесплатные способы продвижения — реально работающие</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">М6</span><div><h3>Таргет</h3><p>Рекламный кабинет, бюджет, критерии, легальность</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">М7</span><div><h3>Анализ кампаний</h3><p>Поведение аудитории, эффективная реклама, аналитика</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">М8</span><div><h3>Анализ ЦА</h3><p>Target Hunter, офферы, продающие заголовки, вовлечение</p></div></div>
       </div>
-      <div class="bonus-strip reveal">
-        <span class="bonus-tag">БОНУС</span>
+      <div class="bonus-row reveal">
+        <span class="bonus-pill">БОНУС</span>
         <p>Подкаст — где искать клиентов и как получить первые заявки</p>
       </div>
     </div>
   </section>
 
   <!-- ===== FORMAT ===== -->
-  <section class="section section--purple" id="format">
+  <section class="sec sec--dark" id="format">
     <div class="container">
-      <p class="eyebrow eyebrow--light">Формат</p>
-      <h2 class="heading heading--white">Учись в своём темпе</h2>
-      <div class="format-grid">
-        <div class="format-item reveal"><div class="format-icon">🎬</div><h3>Видеоуроки в записи</h3><p>Смотри в любое время, с телефона или компьютера</p></div>
-        <div class="format-item reveal"><div class="format-icon">♾️</div><h3>Доступ навсегда</h3><p>Без дедлайна. Возвращайся к урокам когда угодно</p></div>
-        <div class="format-item reveal"><div class="format-icon">🔄</div><h3>Обновления включены</h3><p>Новые уроки и инструменты — бесплатно</p></div>
-        <div class="format-item reveal"><div class="format-icon">📋</div><h3>Партнёрская программа</h3><p>Получай доход, приводя новых учеников</p></div>
+      <div class="tag tag--ghost">Формат</div>
+      <h2 class="h2 h2--white">Учись в своём темпе</h2>
+      <div class="fmt-grid">
+        <div class="fmt-card reveal"><div class="fmt-icon">🎬</div><h3>Видеоуроки в записи</h3><p>Смотри в любое время, с телефона или компьютера</p></div>
+        <div class="fmt-card reveal"><div class="fmt-icon">♾️</div><h3>Доступ навсегда</h3><p>Без дедлайна. Возвращайся к урокам когда угодно</p></div>
+        <div class="fmt-card reveal"><div class="fmt-icon">🔄</div><h3>Обновления включены</h3><p>Новые уроки и инструменты — бесплатно</p></div>
+        <div class="fmt-card reveal"><div class="fmt-icon">📋</div><h3>Партнёрская программа</h3><p>Получай доход, приводя новых учеников</p></div>
       </div>
     </div>
   </section>
 
   <!-- ===== PRICING ===== -->
-  <section class="section" id="pricing">
+  <section class="sec" id="pricing">
     <div class="container">
-      <p class="eyebrow">Стоимость</p>
-      <h2 class="heading">Выбери свой формат</h2>
-      <div class="pricing-grid">
+      <div class="tag tag--light">Стоимость</div>
+      <h2 class="h2">Выбери свой формат</h2>
+      <div class="price-grid">
 
-        <div class="price-card reveal">
+        <div class="pc reveal">
           <h3>Базовый</h3>
-          <div class="price-card__prices">
-            <span class="price-old">34 900 ₽</span>
-            <span class="price-new">3 490 ₽</span>
+          <div class="pc__prices">
+            <span class="pc__old">34 900 ₽</span>
+            <span class="pc__new">3 490 ₽</span>
           </div>
-          <div class="price-badge">Скидка 90%</div>
+          <div class="pc__save">Скидка 90%</div>
           <ul>
             <li>Полный курс — все 8 модулей</li>
             <li>Доступ навсегда</li>
@@ -173,28 +201,28 @@
             <li>Партнёрская программа</li>
             <li>Сертификат после обучения</li>
           </ul>
-          <a href="#contact" class="btn btn--outline btn--full">Выбрать базовый</a>
+          <a href="#contact" class="btn btn-outline btn-full">Выбрать базовый</a>
         </div>
 
-        <div class="price-card price-card--hot reveal">
-          <div class="price-card__top-badge">Популярный выбор</div>
+        <div class="pc pc--hot reveal">
+          <div class="pc__badge">Популярный выбор</div>
           <h3>С поддержкой</h3>
-          <div class="price-card__prices">
-            <span class="price-old">39 900 ₽</span>
-            <span class="price-new">3 990 ₽</span>
+          <div class="pc__prices">
+            <span class="pc__old">39 900 ₽</span>
+            <span class="pc__new">3 990 ₽</span>
           </div>
-          <div class="price-badge">Скидка 90%</div>
+          <div class="pc__save">Скидка 90%</div>
           <ul>
             <li>Полный курс — все 8 модулей</li>
             <li>Доступ навсегда</li>
             <li>Обновления курса</li>
             <li>Партнёрская программа</li>
             <li>Сертификат после обучения</li>
-            <li><strong>⭐ Чат с личной поддержкой Анны</strong></li>
-            <li><strong>⭐ Ответы на вопросы</strong></li>
-            <li><strong>⭐ Разборы и сопровождение</strong></li>
+            <li><strong>Чат с личной поддержкой Анны</strong></li>
+            <li><strong>Ответы на вопросы</strong></li>
+            <li><strong>Разборы и сопровождение</strong></li>
           </ul>
-          <a href="#contact" class="btn btn--primary btn--full">Выбрать с поддержкой →</a>
+          <a href="#contact" class="btn btn-primary btn-full">Выбрать с поддержкой →</a>
         </div>
 
       </div>
@@ -202,86 +230,91 @@
   </section>
 
   <!-- ===== REVIEWS ===== -->
-  <section class="section section--gray" id="reviews">
+  <section class="sec sec--off" id="reviews">
     <div class="container">
-      <p class="eyebrow">Отзывы</p>
-      <h2 class="heading">Что говорят выпускники</h2>
-      <div class="reviews-grid">
-        <div class="review reveal">
-          <div class="review__stars">★★★★★</div>
+      <div class="tag tag--light">Отзывы</div>
+      <h2 class="h2">Что говорят выпускники</h2>
+      <div class="rev-grid">
+        <div class="rev reveal">
+          <div class="rev__stars">★★★★★</div>
           <p>«Начала с нуля, совершенно не понимала ВКонтакте. После курса настроила первую рекламную кампанию и получила 3 заявки в первую неделю!»</p>
-          <div class="review__author"><div class="review__ava">М</div><div><strong>Мария К.</strong><span>Таргетолог</span></div></div>
+          <div class="rev__who"><div class="rev__av">М</div><div><strong>Мария К.</strong><span>Таргетолог</span></div></div>
         </div>
-        <div class="review reveal">
-          <div class="review__stars">★★★★★</div>
+        <div class="rev reveal">
+          <div class="rev__stars">★★★★★</div>
           <p>«Анна объясняет так, что всё становится понятно. Воронку в Senler настроила за один вечер. Уже работаю с первым клиентом.»</p>
-          <div class="review__author"><div class="review__ava">Е</div><div><strong>Екатерина Л.</strong><span>Фрилансер</span></div></div>
+          <div class="rev__who"><div class="rev__av">Е</div><div><strong>Екатерина Л.</strong><span>Фрилансер</span></div></div>
         </div>
-        <div class="review reveal">
-          <div class="review__stars">★★★★★</div>
+        <div class="rev reveal">
+          <div class="rev__stars">★★★★★</div>
           <p>«Продвигала свой магазин сама, но реклама не работала. Благодаря курсу поняла где была ошибка. Теперь заявки идут стабильно.»</p>
-          <div class="review__author"><div class="review__ava">О</div><div><strong>Ольга С.</strong><span>Владелец магазина</span></div></div>
+          <div class="rev__who"><div class="rev__av">О</div><div><strong>Ольга С.</strong><span>Владелец магазина</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== AUTHOR ===== -->
-  <section class="author-section" id="author">
-    <div class="author-section__bg">
+  <section class="author" id="author">
+    <div class="author__img">
       <img src="anna.jpg" alt="Анна Важдаева" />
-      <div class="author-section__fade"></div>
     </div>
-    <div class="container author-section__content reveal">
-      <p class="eyebrow eyebrow--light">Автор курса</p>
-      <h2 class="author-name">Анна<br/>Важдаева</h2>
-      <p class="author-org">ООО «Инстарт»</p>
-      <p class="author-desc">Специалист по продвижению ВКонтакте. Помогаю предпринимателям и фрилансерам получать клиентов через таргет, контент и автоворонки. В курсе — только система, которую применяешь сразу.</p>
-      <div class="author-stats">
-        <div><strong>8</strong><span>модулей</span></div>
-        <div><strong>100+</strong><span>выпускников</span></div>
-        <div><strong>♾️</strong><span>навсегда</span></div>
+    <div class="container">
+      <div class="author__body reveal">
+        <div class="tag tag--ghost">Автор курса</div>
+        <h2 class="author__name">Анна<br/>Важдаева</h2>
+        <p class="author__role">ООО «Инстарт» · Специалист по продвижению ВКонтакте</p>
+        <p class="author__desc">Помогаю предпринимателям и фрилансерам получать клиентов через таргет, контент и автоворонки. В курсе — только то, что работает прямо сейчас.</p>
+        <div class="author__nums">
+          <div class="author__num"><strong>8</strong><span>модулей</span></div>
+          <div class="author__num"><strong>100+</strong><span>выпускников</span></div>
+          <div class="author__num"><strong>2026</strong><span>обновлён</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACT / CTA ===== -->
-  <section class="section" id="contact">
-    <div class="container contact-inner">
-      <div class="contact-text reveal">
-        <p class="eyebrow">Записаться</p>
-        <h2 class="heading">Хочешь начать?</h2>
-        <p class="contact-desc">Напиши мне слово <strong>«СТАРТ»</strong> или оставь заявку — я отправлю доступ и помогу выбрать формат.</p>
-        <div class="guarantees">
-          <div class="g-row"><span>♾️</span><p>Бессрочный доступ</p></div>
-          <div class="g-row"><span>🔄</span><p>Бесплатные обновления</p></div>
-          <div class="g-row"><span>📜</span><p>Сертификат выпускника</p></div>
-          <div class="g-row"><span>💬</span><p>Личная поддержка автора</p></div>
+  <!-- ===== CONTACT ===== -->
+  <section class="sec" id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="reveal">
+          <div class="tag tag--light">Записаться</div>
+          <h2 class="h2">Хочешь начать?</h2>
+          <p class="contact-desc">Напиши мне слово <strong>«СТАРТ»</strong> или оставь заявку — я отправлю доступ и помогу выбрать формат.</p>
+          <div class="guarantees">
+            <div class="g-row"><span>♾️</span><p>Бессрочный доступ</p></div>
+            <div class="g-row"><span>🔄</span><p>Бесплатные обновления</p></div>
+            <div class="g-row"><span>📜</span><p>Сертификат выпускника</p></div>
+            <div class="g-row"><span>💬</span><p>Личная поддержка автора</p></div>
+          </div>
         </div>
-      </div>
-      <div class="contact-form reveal">
-        <form id="leadForm" novalidate>
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-          <div class="field">
-            <label for="f-name">Как тебя зовут?</label>
-            <input type="text" id="f-name" name="name" placeholder="Твоё имя" required />
+        <div class="reveal">
+          <div class="form-card">
+            <form id="leadForm" novalidate>
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+              <div class="field">
+                <label for="f-name">Имя</label>
+                <input type="text" id="f-name" name="name" placeholder="Как тебя зовут?" required />
+              </div>
+              <div class="field">
+                <label for="f-contact">Telegram или телефон</label>
+                <input type="text" id="f-contact" name="contact" placeholder="@username или +7..." required />
+              </div>
+              <div class="field">
+                <label for="f-format">Формат</label>
+                <select id="f-format" name="format">
+                  <option value="">Выбери формат</option>
+                  <option value="Базовый — 3 490 ₽ (было 34 900 ₽)">Базовый — 3 490 ₽ (было 34 900 ₽)</option>
+                  <option value="С поддержкой — 3 990 ₽ (было 39 900 ₽)">С поддержкой — 3 990 ₽ (было 39 900 ₽)</option>
+                  <option value="Хочу узнать подробнее">Хочу узнать подробнее</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Получить курс →</button>
+              <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+            </form>
           </div>
-          <div class="field">
-            <label for="f-contact">Telegram или телефон</label>
-            <input type="text" id="f-contact" name="contact" placeholder="@username или +7..." required />
-          </div>
-          <div class="field">
-            <label for="f-format">Какой формат интересует?</label>
-            <select id="f-format" name="format">
-              <option value="">Выбери формат</option>
-              <option value="Базовый — 3 490 ₽ (было 34 900 ₽)">Базовый — 3 490 ₽ (было 34 900 ₽)</option>
-              <option value="С поддержкой — 3 990 ₽ (было 39 900 ₽)">С поддержкой — 3 990 ₽ (было 39 900 ₽)</option>
-              <option value="Хочу узнать подробнее">Хочу узнать подробнее</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">Получить курс →</button>
-          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -289,7 +322,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
-      <span>© <span id="year"></span> Важдаева Анна · ООО «Инстарт»</span>
+      <span class="footer__copy">© <span id="year"></span> Важдаева Анна · ООО «Инстарт»</span>
       <div class="footer__links">
         <a href="#hero">Начало</a>
         <a href="#program">Программа</a>
