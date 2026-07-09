@@ -7,7 +7,7 @@
   <meta name="description" content="Пошаговый курс по таргетированной рекламе, упаковке профиля и запуску воронки продаж во ВКонтакте. С нуля до первых заявок." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,17 +15,17 @@
   <!-- HEADER -->
   <header class="header header--dark" id="header">
     <div class="container header__inner">
-      <div class="logo">
+      <a href="#hero" class="logo">
         <span class="logo-vk">VK</span>
-        <span class="logo-name">Важдаева Анна</span>
-      </div>
+        <span class="logo-name">Важдаева&nbsp;Анна</span>
+      </a>
       <nav class="nav">
         <a href="#about">О курсе</a>
         <a href="#program">Программа</a>
         <a href="#pricing">Стоимость</a>
         <a href="#reviews">Отзывы</a>
-        <a href="#contact">Записаться</a>
       </nav>
+      <a href="#contact" class="btn btn-nav">Записаться</a>
       <button class="burger" id="burger" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
@@ -55,21 +55,29 @@
         </p>
         <div class="hero__perks">
           <div class="hero__perk">
-            <div class="hero__perk-icon">🎯</div>
-            <span>С нуля до первых заявок за результат</span>
+            <span class="hero__perk-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+            </span>
+            <span>С нуля до первых заявок — за результат</span>
           </div>
           <div class="hero__perk">
-            <div class="hero__perk-icon">⚡</div>
+            <span class="hero__perk-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+            </span>
             <span>Таргет + воронка + упаковка — в одном курсе</span>
           </div>
           <div class="hero__perk">
-            <div class="hero__perk-icon">💬</div>
+            <span class="hero__perk-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.6-.8L3 21l1.9-5.7A8.38 8.38 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5Z"/></svg>
+            </span>
             <span>Личная поддержка автора в чате</span>
           </div>
         </div>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn-white btn-lg">Получить доступ к курсу →</a>
-          <p class="hero__price">от <s>34 900 ₽</s> &nbsp;<strong>3 490 ₽</strong> · бессрочно</p>
+          <a href="#contact" class="btn btn-white btn-lg">Получить доступ к курсу
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="hero__price">от <s>34 900 ₽</s> <strong>3 490 ₽</strong> · доступ навсегда</p>
         </div>
       </div>
 
@@ -77,12 +85,12 @@
         <div class="hero__cover">
           <img src="program2.jpg" alt="Анна Важдаева" class="hero__cover-img" />
           <div class="hero__chip hero__chip--1">
-            <div class="hero__chip-dot"></div>
+            <span class="hero__chip-dot"></span>
             Доступ навсегда
           </div>
           <div class="hero__chip hero__chip--2">
-            <span>📜</span>
-            Сертификат выпускника
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>
+            Сертификат
           </div>
         </div>
       </div>
@@ -92,10 +100,10 @@
 
   <!-- ===== STATS ===== -->
   <div class="stats">
-    <div class="stats__inner">
+    <div class="container stats__inner">
       <div class="stat-box"><strong>8</strong><span>модулей</span></div>
       <div class="stat-box"><strong>100+</strong><span>выпускников</span></div>
-      <div class="stat-box"><strong>♾️</strong><span>навсегда</span></div>
+      <div class="stat-box"><strong>∞</strong><span>доступ навсегда</span></div>
       <div class="stat-box"><strong>0</strong><span>дедлайнов</span></div>
     </div>
   </div>
@@ -103,12 +111,14 @@
   <!-- ===== FOR WHOM ===== -->
   <section class="sec" id="forwhom">
     <div class="container">
-      <div class="tag tag--light">Для кого</div>
-      <h2 class="h2">Этот курс для тебя, если…</h2>
+      <div class="sec-head">
+        <div class="tag tag--light">Для кого</div>
+        <h2 class="h2">Этот курс для тебя,<br/>если ты&nbsp;узнаёшь себя</h2>
+      </div>
       <div class="fw-list">
         <div class="fw-item reveal">
           <span class="fw-n">01</span>
-          <p>Хочешь начать <strong>зарабатывать во ВКонтакте</strong> и не знаешь с чего начать</p>
+          <p>Хочешь начать <strong>зарабатывать во ВКонтакте</strong>, но не знаешь с чего начать</p>
         </div>
         <div class="fw-item reveal">
           <span class="fw-n">02</span>
@@ -129,10 +139,12 @@
   <!-- ===== RESULTS ===== -->
   <section class="sec sec--off" id="about">
     <div class="container">
-      <div class="tag tag--light">Чему ты научишься</div>
-      <h2 class="h2">Система, которую<br/>применяешь сразу</h2>
+      <div class="sec-head">
+        <div class="tag tag--light">Чему ты научишься</div>
+        <h2 class="h2">Система, которую<br/>применяешь сразу</h2>
+      </div>
       <div class="results-wrap">
-        <div class="res-item reveal"><div class="res-n">01</div><p>Оформлять страницу или сообщество ВКонтакте <strong>под продажи</strong></p></div>
+        <div class="res-item reveal"><div class="res-n">01</div><p>Оформлять сообщество ВКонтакте <strong>под продажи</strong></p></div>
         <div class="res-item reveal"><div class="res-n">02</div><p>Упаковывать профиль так, чтобы он <strong>продавал сам</strong></p></div>
         <div class="res-item reveal"><div class="res-n">03</div><p>Настраивать <strong>воронку продаж</strong> через Senler</p></div>
         <div class="res-item reveal"><div class="res-n">04</div><p>Выстраивать <strong>автоматические цепочки</strong> сообщений</p></div>
@@ -147,20 +159,22 @@
   <!-- ===== PROGRAM ===== -->
   <section class="sec" id="program">
     <div class="container">
-      <div class="tag tag--light">Программа</div>
-      <h2 class="h2">8 модулей — от профиля<br/>до первых клиентов</h2>
+      <div class="sec-head">
+        <div class="tag tag--light">Программа</div>
+        <h2 class="h2">8 модулей — от профиля<br/>до первых клиентов</h2>
+      </div>
       <div class="mods">
-        <div class="mod reveal"><span class="mod__tag">М1</span><div><h3>Вводный</h3><p>Настройка аккаунта, обзор функций и интерфейса ВКонтакте</p></div></div>
-        <div class="mod reveal"><span class="mod__tag">М2</span><div><h3>Создание сообщества</h3><p>Создание с нуля, обложка, виджеты, Figma</p></div></div>
-        <div class="mod reveal"><span class="mod__tag">М3</span><div><h3>Senler и чат-боты</h3><p>Обновления 2026, чат-бот, аналитика, подключение</p></div></div>
-        <div class="mod reveal"><span class="mod__tag">М4</span><div><h3>Контент-маркетинг</h3><p>Виды контента, контент-план, планирование публикаций</p></div></div>
-        <div class="mod reveal"><span class="mod__tag">М5</span><div><h3>Продвижение</h3><p>Бесплатные способы продвижения — реально работающие</p></div></div>
-        <div class="mod reveal"><span class="mod__tag">М6</span><div><h3>Таргет</h3><p>Рекламный кабинет, бюджет, критерии, легальность</p></div></div>
-        <div class="mod reveal"><span class="mod__tag">М7</span><div><h3>Анализ кампаний</h3><p>Поведение аудитории, эффективная реклама, аналитика</p></div></div>
-        <div class="mod reveal"><span class="mod__tag">М8</span><div><h3>Анализ ЦА</h3><p>Target Hunter, офферы, продающие заголовки, вовлечение</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">01</span><div class="mod__body"><h3>Вводный</h3><p>Настройка аккаунта, обзор функций и интерфейса ВКонтакте</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">02</span><div class="mod__body"><h3>Создание сообщества</h3><p>Создание с нуля, обложка, виджеты, Figma</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">03</span><div class="mod__body"><h3>Senler и чат-боты</h3><p>Обновления 2026, чат-бот, аналитика, подключение</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">04</span><div class="mod__body"><h3>Контент-маркетинг</h3><p>Виды контента, контент-план, планирование публикаций</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">05</span><div class="mod__body"><h3>Продвижение</h3><p>Бесплатные способы продвижения — реально работающие</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">06</span><div class="mod__body"><h3>Таргет</h3><p>Рекламный кабинет, бюджет, критерии, легальность</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">07</span><div class="mod__body"><h3>Анализ кампаний</h3><p>Поведение аудитории, эффективная реклама, аналитика</p></div></div>
+        <div class="mod reveal"><span class="mod__tag">08</span><div class="mod__body"><h3>Анализ ЦА</h3><p>Target Hunter, офферы, продающие заголовки, вовлечение</p></div></div>
       </div>
       <div class="bonus-row reveal">
-        <span class="bonus-pill">БОНУС</span>
+        <span class="bonus-pill">Бонус</span>
         <p>Подкаст — где искать клиентов и как получить первые заявки</p>
       </div>
     </div>
@@ -169,13 +183,27 @@
   <!-- ===== FORMAT ===== -->
   <section class="sec sec--dark" id="format">
     <div class="container">
-      <div class="tag tag--ghost">Формат</div>
-      <h2 class="h2 h2--white">Учись в своём темпе</h2>
+      <div class="sec-head">
+        <div class="tag tag--ghost">Формат</div>
+        <h2 class="h2 h2--white">Учись в своём темпе</h2>
+      </div>
       <div class="fmt-grid">
-        <div class="fmt-card reveal"><div class="fmt-icon">🎬</div><h3>Видеоуроки в записи</h3><p>Смотри в любое время, с телефона или компьютера</p></div>
-        <div class="fmt-card reveal"><div class="fmt-icon">♾️</div><h3>Доступ навсегда</h3><p>Без дедлайна. Возвращайся к урокам когда угодно</p></div>
-        <div class="fmt-card reveal"><div class="fmt-icon">🔄</div><h3>Обновления включены</h3><p>Новые уроки и инструменты — бесплатно</p></div>
-        <div class="fmt-card reveal"><div class="fmt-icon">📋</div><h3>Партнёрская программа</h3><p>Получай доход, приводя новых учеников</p></div>
+        <div class="fmt-card reveal">
+          <span class="fmt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg></span>
+          <h3>Видеоуроки в записи</h3><p>Смотри в любое время — с телефона или компьютера</p>
+        </div>
+        <div class="fmt-card reveal">
+          <span class="fmt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.6 6.6a5 5 0 1 0 0 10.8c1.7 0 3.1-.9 6.4-5.4M5.4 17.4a5 5 0 1 1 0-10.8c1.7 0 3.1.9 6.4 5.4"/></svg></span>
+          <h3>Доступ навсегда</h3><p>Без дедлайна. Возвращайся к урокам когда угодно</p>
+        </div>
+        <div class="fmt-card reveal">
+          <span class="fmt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 3v6h-6"/></svg></span>
+          <h3>Обновления включены</h3><p>Новые уроки и инструменты — бесплатно</p>
+        </div>
+        <div class="fmt-card reveal">
+          <span class="fmt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
+          <h3>Партнёрская программа</h3><p>Получай доход, приводя новых учеников</p>
+        </div>
       </div>
     </div>
   </section>
@@ -183,8 +211,10 @@
   <!-- ===== PRICING ===== -->
   <section class="sec" id="pricing">
     <div class="container">
-      <div class="tag tag--light">Стоимость</div>
-      <h2 class="h2">Выбери свой формат</h2>
+      <div class="sec-head sec-head--center">
+        <div class="tag tag--light">Стоимость</div>
+        <h2 class="h2">Выбери свой формат</h2>
+      </div>
       <div class="price-grid">
 
         <div class="pc reveal">
@@ -218,11 +248,13 @@
             <li>Обновления курса</li>
             <li>Партнёрская программа</li>
             <li>Сертификат после обучения</li>
-            <li><strong>Чат с личной поддержкой Анны</strong></li>
-            <li><strong>Ответы на вопросы</strong></li>
-            <li><strong>Разборы и сопровождение</strong></li>
+            <li class="pc__hl">Чат с личной поддержкой Анны</li>
+            <li class="pc__hl">Ответы на вопросы</li>
+            <li class="pc__hl">Разборы и сопровождение</li>
           </ul>
-          <a href="#contact" class="btn btn-primary btn-full">Выбрать с поддержкой →</a>
+          <a href="#contact" class="btn btn-primary btn-full">Выбрать с поддержкой
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
 
       </div>
@@ -232,22 +264,24 @@
   <!-- ===== REVIEWS ===== -->
   <section class="sec sec--off" id="reviews">
     <div class="container">
-      <div class="tag tag--light">Отзывы</div>
-      <h2 class="h2">Что говорят выпускники</h2>
+      <div class="sec-head">
+        <div class="tag tag--light">Отзывы</div>
+        <h2 class="h2">Что говорят выпускники</h2>
+      </div>
       <div class="rev-grid">
         <div class="rev reveal">
           <div class="rev__stars">★★★★★</div>
-          <p>«Начала с нуля, совершенно не понимала ВКонтакте. После курса настроила первую рекламную кампанию и получила 3 заявки в первую неделю!»</p>
+          <p>Начала с нуля, совершенно не понимала ВКонтакте. После курса настроила первую рекламную кампанию и получила 3 заявки в первую неделю!</p>
           <div class="rev__who"><div class="rev__av">М</div><div><strong>Мария К.</strong><span>Таргетолог</span></div></div>
         </div>
         <div class="rev reveal">
           <div class="rev__stars">★★★★★</div>
-          <p>«Анна объясняет так, что всё становится понятно. Воронку в Senler настроила за один вечер. Уже работаю с первым клиентом.»</p>
+          <p>Анна объясняет так, что всё становится понятно. Воронку в Senler настроила за один вечер. Уже работаю с первым клиентом.</p>
           <div class="rev__who"><div class="rev__av">Е</div><div><strong>Екатерина Л.</strong><span>Фрилансер</span></div></div>
         </div>
         <div class="rev reveal">
           <div class="rev__stars">★★★★★</div>
-          <p>«Продвигала свой магазин сама, но реклама не работала. Благодаря курсу поняла где была ошибка. Теперь заявки идут стабильно.»</p>
+          <p>Продвигала свой магазин сама, но реклама не работала. Благодаря курсу поняла где была ошибка. Теперь заявки идут стабильно.</p>
           <div class="rev__who"><div class="rev__av">О</div><div><strong>Ольга С.</strong><span>Владелец магазина</span></div></div>
         </div>
       </div>
@@ -281,12 +315,12 @@
         <div class="reveal">
           <div class="tag tag--light">Записаться</div>
           <h2 class="h2">Хочешь начать?</h2>
-          <p class="contact-desc">Напиши мне слово <strong>«СТАРТ»</strong> или оставь заявку — я отправлю доступ и помогу выбрать формат.</p>
+          <p class="contact-desc">Напиши слово <strong>«СТАРТ»</strong> или оставь заявку — я отправлю доступ и помогу выбрать формат.</p>
           <div class="guarantees">
-            <div class="g-row"><span>♾️</span><p>Бессрочный доступ</p></div>
-            <div class="g-row"><span>🔄</span><p>Бесплатные обновления</p></div>
-            <div class="g-row"><span>📜</span><p>Сертификат выпускника</p></div>
-            <div class="g-row"><span>💬</span><p>Личная поддержка автора</p></div>
+            <div class="g-row"><span class="g-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18.6 6.6a5 5 0 1 0 0 10.8c1.7 0 3.1-.9 6.4-5.4M5.4 17.4a5 5 0 1 1 0-10.8c1.7 0 3.1.9 6.4 5.4"/></svg></span><p>Бессрочный доступ</p></div>
+            <div class="g-row"><span class="g-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 3v6h-6"/></svg></span><p>Бесплатные обновления</p></div>
+            <div class="g-row"><span class="g-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg></span><p>Сертификат выпускника</p></div>
+            <div class="g-row"><span class="g-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.6-.8L3 21l1.9-5.7A8.38 8.38 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5Z"/></svg></span><p>Личная поддержка автора</p></div>
           </div>
         </div>
         <div class="reveal">
@@ -310,7 +344,9 @@
                   <option value="Хочу узнать подробнее">Хочу узнать подробнее</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary btn-full">Получить курс →</button>
+              <button type="submit" class="btn btn-primary btn-full">Получить курс
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
               <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
             </form>
           </div>

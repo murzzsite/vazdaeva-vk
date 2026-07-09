@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vazdaeva-vk",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", ".", "-p", "3031", "--no-clipboard"],
+      "port": 3031
+    }
+  ]
+}
