@@ -392,6 +392,17 @@ svg { display: block; }
 .fmt-card p { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
 
 /* =============================================
+   PROMO BANNER
+   ============================================= */
+.promo { padding: 108px 0; }
+@media (max-width: 960px) { .promo { padding: 76px 0; } }
+.promo__card {
+  margin: 0; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 24px 70px rgba(10,24,54,.28), 0 0 0 1px rgba(244,114,182,.18);
+}
+.promo__card img { width: 100%; height: auto; display: block; }
+
+/* =============================================
    PRICING
    ============================================= */
 .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 880px; margin: 0 auto; }
