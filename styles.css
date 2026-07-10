@@ -278,6 +278,67 @@ svg { display: block; }
 .hero__chip--2 { bottom: -16px; left: -14px; }
 .hero__chip-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.2); }
 
+/* Floating orbs */
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(90px); pointer-events: none; z-index: 0;
+  opacity: .55;
+}
+.orb--1 { width: 460px; height: 460px; top: -80px; right: 4%; background: radial-gradient(circle, #D6146E, transparent 70%); animation: orbFloat 14s ease-in-out infinite; }
+.orb--2 { width: 380px; height: 380px; bottom: -60px; left: 2%; background: radial-gradient(circle, #2E5BC7, transparent 70%); animation: orbFloat 18s ease-in-out infinite reverse; }
+@keyframes orbFloat {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%     { transform: translate(40px,30px) scale(1.08); }
+  66%     { transform: translate(-30px,20px) scale(.96); }
+}
+
+/* Animated shimmer on hero accent */
+.hero__title em {
+  background: linear-gradient(100deg, var(--pm) 0%, var(--acc) 40%, #fff 55%, var(--acc) 70%, var(--pm) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer { to { background-position: -250% 0; } }
+
+/* Floating chips */
+.hero__chip--1 { animation: chipFloat 5s ease-in-out infinite; }
+.hero__chip--2 { animation: chipFloat 6.5s ease-in-out infinite .8s; }
+@keyframes chipFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+/* Pulse glow on primary CTA */
+.btn-primary { position: relative; }
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0; border-radius: 50px;
+  box-shadow: 0 0 0 0 rgba(214,20,110,.5);
+  animation: pulse 2.6s ease-out infinite; pointer-events: none;
+}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(214,20,110,.45); } 70%,100% { box-shadow: 0 0 0 16px rgba(214,20,110,0); } }
+
+/* =============================================
+   MARQUEE
+   ============================================= */
+.marquee {
+  background: linear-gradient(90deg, #D6146E 0%, #A61E8C 50%, #2E5BC7 100%);
+  overflow: hidden; padding: 16px 0;
+  transform: rotate(-1.6deg); width: 104%; margin-left: -2%;
+  position: relative; z-index: 5;
+  box-shadow: 0 12px 40px rgba(214,20,110,.28);
+}
+.marquee__track {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  animation: marquee 32s linear infinite; will-change: transform;
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__track span {
+  font-family: var(--disp); font-size: 17px; font-weight: 600;
+  color: #fff; text-transform: uppercase; letter-spacing: .04em;
+  padding: 0 22px;
+}
+.marquee__track i { color: rgba(255,255,255,.6); font-style: normal; font-size: 13px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
 /* =============================================
    STATS
    ============================================= */

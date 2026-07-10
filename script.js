@@ -79,4 +79,24 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Animated counters
+  const animateCount = el => {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400, start = performance.now();
+    const tick = now => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const countIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCount(e.target); countIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 })();
