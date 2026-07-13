@@ -154,10 +154,10 @@
     const toast = document.createElement('div');
     toast.className = 'egg-toast';
     toast.innerHTML = `
-      <span class="egg-toast__emoji">🎉</span>
+      <span class="egg-toast__emoji">🎨</span>
       <div>
         <strong>Пасхалка найдена!</strong>
-        <p>Промокод <b>VK-SECRET</b> — назови его в заявке, и Анна добавит разбор твоего профиля бесплатно</p>
+        <p>В тариф «С поддержкой» уже включён бонус — урок <b>«Основы дизайна в Figma»</b>. Не все это замечают ;)</p>
       </div>
       <button class="egg-toast__close" aria-label="Закрыть">×</button>
     `;
@@ -167,6 +167,39 @@
     toast.querySelector('.egg-toast__close').addEventListener('click', remove);
     setTimeout(remove, 9000);
   }
+
+  // Niche checker
+  const nicheSelect = document.getElementById('nicheSelect');
+  const nicheBtn = document.getElementById('nicheBtn');
+  const nicheResult = document.getElementById('nicheResult');
+  const NICHE_VERDICTS = {
+    green: {
+      icon: '🟢', cls: 'niche-card--green', title: 'Отличный выбор',
+      text: 'Модерация ВКонтакте почти всегда пропускает такую рекламу с первого раза. В модулях 6–7 курса разбираем, как быстро выйти на первые заявки именно в таких нишах.'
+    },
+    yellow: {
+      icon: '🟡', cls: 'niche-card--yellow', title: 'Реклама пройдёт — но нужны правила',
+      text: 'Здесь важно знать формулировки и требования площадки, иначе объявление просто не пропустят. В курсе разбираем именно такие кейсы — с готовыми формулировками, которые проходят модерацию.'
+    },
+    blue: {
+      icon: '🔵', cls: 'niche-card--blue', title: 'Долгий цикл сделки',
+      text: 'Реклама сработает, но потребуется бюджет на тесты и терпение — заявки приходят не сразу. В модуле про аналитику показываем, как считать окупаемость на дистанции.'
+    },
+    red: {
+      icon: '🔴', cls: 'niche-card--red', title: 'Высокий риск блокировки',
+      text: 'Такую рекламу модерация блокирует почти всегда. Если это твоя ниша — напиши Анне в заявке, подскажем обходные пути продвижения без прямой рекламы.'
+    }
+  };
+  nicheBtn?.addEventListener('click', () => {
+    const val = nicheSelect.value;
+    if (!val) { nicheSelect.focus(); return; }
+    const v = NICHE_VERDICTS[val];
+    nicheResult.innerHTML = `
+      <div class="niche-card ${v.cls}">
+        <span class="niche-card__icon">${v.icon}</span>
+        <div><strong>${v.title}</strong><p>${v.text}</p></div>
+      </div>`;
+  });
 
   // Honest countdown to end of day (discount is "today")
   const cdEl = document.getElementById('cdTimer');

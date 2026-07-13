@@ -212,6 +212,57 @@
         <span class="bonus-pill">Бонус</span>
         <p>Именной сертификат по итогам прохождения курса</p>
       </div>
+      <div class="bonus-row bonus-row--fig reveal">
+        <span class="bonus-pill bonus-pill--fig">Секретный бонус</span>
+        <p>Урок «Основы дизайна в Figma» — оформишь обложку и посты сообщества как дизайнер, без фрилансеров</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NICHE CHECKER ===== -->
+  <section class="sec sec--off" id="niche">
+    <div class="container">
+      <div class="sec-head sec-head--center">
+        <div class="tag tag--light">Мини-разбор</div>
+        <h2 class="h2">Сработает ли <span class="mark">твоя ниша</span>?</h2>
+        <p class="niche-sub">В курсе целый модуль про то, какие ниши модерация ВКонтакте пропускает легко, а какие требуют особого подхода. Проверь свою прямо сейчас.</p>
+      </div>
+      <div class="niche-box reveal">
+        <div class="niche-box__row">
+          <select id="nicheSelect" class="niche-select">
+            <option value="">Выбери свою нишу...</option>
+            <optgroup label="🟢 Заходит легко">
+              <option value="green">Онлайн-курсы и образование</option>
+              <option value="green">Детские товары, кружки, секции</option>
+              <option value="green">Красота и уход (мастера, салоны)</option>
+              <option value="green">Доставка еды, кафе, рестораны</option>
+              <option value="green">Фитнес и спорт</option>
+              <option value="green">Товары для дома</option>
+            </optgroup>
+            <optgroup label="🟡 Нужны знания правил площадки">
+              <option value="yellow">Медицинские услуги</option>
+              <option value="yellow">Косметология, пластическая хирургия</option>
+              <option value="yellow">Психология, эзотерика, астрология</option>
+              <option value="yellow">Финансовые услуги, займы</option>
+              <option value="yellow">Инфобизнес «как заработать»</option>
+            </optgroup>
+            <optgroup label="🔵 Долгий цикл сделки">
+              <option value="blue">Недвижимость</option>
+              <option value="blue">Автосалоны</option>
+              <option value="blue">Крупные B2B-услуги</option>
+            </optgroup>
+            <optgroup label="🔴 Модерация почти всегда блокирует">
+              <option value="red">Алкоголь, табак, вейпы</option>
+              <option value="red">Азартные игры, ставки, казино</option>
+              <option value="red">Товары и услуги 18+</option>
+              <option value="red">БАДы с «чудо-эффектом»</option>
+              <option value="red">Финансовые пирамиды</option>
+            </optgroup>
+          </select>
+          <button class="btn btn-primary" id="nicheBtn">Проверить</button>
+        </div>
+        <div class="niche-result" id="nicheResult"></div>
+      </div>
     </div>
   </section>
 

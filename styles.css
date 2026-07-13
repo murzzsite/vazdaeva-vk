@@ -464,7 +464,9 @@ svg { display: block; }
   background: var(--ink); border-radius: 16px;
   padding: 22px 28px; flex-wrap: wrap;
   position: relative; overflow: hidden;
+  margin-bottom: 12px;
 }
+.bonus-row:last-child { margin-bottom: 0; }
 .bonus-row::before {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse 50% 120% at 100% 50%, rgba(214,20,110,.35), transparent 70%);
@@ -477,6 +479,51 @@ svg { display: block; }
   padding: 6px 15px; border-radius: 50px; white-space: nowrap;
 }
 .bonus-row p { position: relative; font-size: 15px; font-weight: 500; color: #fff; }
+
+.bonus-row--fig {
+  background: var(--g900);
+  border: 2px dashed var(--pop);
+}
+.bonus-row--fig::before {
+  background: radial-gradient(ellipse 50% 120% at 100% 50%, rgba(255,216,77,.28), transparent 70%);
+}
+.bonus-pill--fig { background: var(--pop); color: var(--g900); font-weight: 800; }
+
+/* =============================================
+   NICHE CHECKER
+   ============================================= */
+.niche-sub { max-width: 560px; margin: 0 auto; font-size: 16px; color: var(--g600); line-height: 1.6; }
+.niche-box {
+  max-width: 640px; margin: 40px auto 0;
+  background: var(--white); border: 2px solid var(--g900); border-radius: 22px;
+  padding: 32px; box-shadow: var(--hard);
+}
+.niche-box__row { display: flex; gap: 12px; flex-wrap: wrap; }
+.niche-select {
+  flex: 1; min-width: 220px;
+  padding: 15px 16px;
+  border: 1.5px solid var(--g200); border-radius: 13px;
+  font-size: 15px; font-family: 'Inter', inherit;
+  color: var(--g900); background: var(--paper);
+  outline: none; cursor: pointer;
+}
+.niche-select:focus { border-color: var(--p); }
+.niche-box #nicheBtn { flex-shrink: 0; }
+.niche-result { margin-top: 18px; }
+.niche-result:empty { margin-top: 0; }
+.niche-card {
+  display: flex; gap: 14px; align-items: flex-start;
+  border: 2px solid var(--g900); border-radius: 16px;
+  padding: 20px 22px; animation: nicheIn .35s cubic-bezier(.2,1.2,.4,1);
+}
+@keyframes nicheIn { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: none; } }
+.niche-card__icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+.niche-card strong { font-family: var(--disp); font-size: 15px; display: block; margin-bottom: 6px; color: var(--g900); }
+.niche-card p { font-size: 14px; color: var(--g700); line-height: 1.55; }
+.niche-card--green { background: var(--lime); }
+.niche-card--yellow { background: var(--pop); }
+.niche-card--blue { background: var(--sky); }
+.niche-card--red { background: #FFC2D1; }
 
 /* =============================================
    FORMAT
