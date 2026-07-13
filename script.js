@@ -51,6 +51,7 @@
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       btn.textContent = '✓ Заявка отправлена';
       form.reset();
+      burstConfetti();
     } catch (err) {
       console.error(err);
       btn.textContent = 'Ошибка — попробуй ещё раз';
@@ -99,4 +100,87 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+  // Scroll progress bar
+  const bar = document.createElement('div');
+  bar.className = 'scroll-bar';
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+
+  // Confetti burst (used on successful form submit + easter egg)
+  function burstConfetti(originEl) {
+    const colors = ['#D6146E', '#FF5CA8', '#FFD84D', '#B6F09C', '#7FC4FF', '#1D3B78'];
+    const rect = originEl ? originEl.getBoundingClientRect() : { left: innerWidth / 2, top: innerHeight / 3, width: 0 };
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top;
+    for (let i = 0; i < 60; i++) {
+      const p = document.createElement('span');
+      p.className = 'confetti-piece';
+      const size = 6 + Math.random() * 6;
+      p.style.width = size + 'px';
+      p.style.height = size * .4 + 'px';
+      p.style.background = colors[i % colors.length];
+      p.style.left = cx + 'px';
+      p.style.top = cy + 'px';
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 120 + Math.random() * 220;
+      p.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+      p.style.setProperty('--dy', Math.sin(angle) * dist - 80 + 'px');
+      p.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+      p.style.animationDuration = (1.1 + Math.random() * .7) + 's';
+      document.body.appendChild(p);
+      p.addEventListener('animationend', () => p.remove());
+    }
+  }
+
+  // Easter egg: type "vk" anywhere to unlock a bonus surprise
+  let keyBuf = '';
+  let eggUsed = false;
+  window.addEventListener('keydown', e => {
+    if (e.key.length !== 1) return;
+    keyBuf = (keyBuf + e.key.toLowerCase()).slice(-2);
+    if (keyBuf === 'vk' && !eggUsed) {
+      eggUsed = true;
+      showEasterEgg();
+    }
+  });
+
+  function showEasterEgg() {
+    burstConfetti();
+    const toast = document.createElement('div');
+    toast.className = 'egg-toast';
+    toast.innerHTML = `
+      <span class="egg-toast__emoji">🎉</span>
+      <div>
+        <strong>Пасхалка найдена!</strong>
+        <p>Промокод <b>VK-SECRET</b> — назови его в заявке, и Анна добавит разбор твоего профиля бесплатно</p>
+      </div>
+      <button class="egg-toast__close" aria-label="Закрыть">×</button>
+    `;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('is-visible'));
+    const remove = () => { toast.classList.remove('is-visible'); setTimeout(() => toast.remove(), 400); };
+    toast.querySelector('.egg-toast__close').addEventListener('click', remove);
+    setTimeout(remove, 9000);
+  }
+
+  // Honest countdown to end of day (discount is "today")
+  const cdEl = document.getElementById('cdTimer');
+  if (cdEl) {
+    const tick = () => {
+      const now = new Date();
+      const end = new Date(now); end.setHours(23, 59, 59, 999);
+      let diff = Math.max(0, end - now);
+      const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+      const m = String(Math.floor(diff / 60000) % 60).padStart(2, '0');
+      const s = String(Math.floor(diff / 1000) % 60).padStart(2, '0');
+      cdEl.textContent = `${h}:${m}:${s}`;
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
 })();
