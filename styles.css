@@ -617,10 +617,33 @@ svg { display: block; }
   line-height: .98; letter-spacing: -.03em; margin: 14px 0 8px;
 }
 .author__role { font-family: var(--disp); font-size: 13px; color: var(--pm); margin-bottom: 24px; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; }
-.author__desc { font-size: 16px; color: rgba(255,255,255,.68); line-height: 1.75; margin-bottom: 36px; }
+.author__desc { font-size: 16px; color: rgba(255,255,255,.68); line-height: 1.75; margin-bottom: 28px; }
+.author__results { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+.author__results li {
+  position: relative; padding-left: 26px;
+  font-size: 15px; color: rgba(255,255,255,.82); line-height: 1.5;
+}
+.author__results li::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--acc); box-shadow: 0 0 10px rgba(255,92,168,.7);
+}
+.author__results strong { color: #fff; font-weight: 700; }
 .author__nums { display: flex; gap: 40px; flex-wrap: wrap; }
 .author__num strong { font-family: var(--disp); display: block; font-size: 38px; font-weight: 600; color: #fff; letter-spacing: -.02em; line-height: 1; }
 .author__num span { font-size: 12px; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; display: block; }
+
+/* =============================================
+   CERTIFICATE
+   ============================================= */
+.cert-wrap { display: grid; grid-template-columns: 420px 1fr; gap: 64px; align-items: center; }
+.cert-img img {
+  width: 100%; border-radius: 20px;
+  box-shadow: var(--sh-lg);
+  transform: rotate(-2deg);
+  transition: transform .3s cubic-bezier(.2,1.4,.4,1);
+}
+.cert-img:hover img { transform: rotate(0deg) scale(1.02); }
 
 /* =============================================
    CONTACT / FORM
@@ -710,6 +733,8 @@ svg { display: block; }
   .author { padding: 72px 0; }
   .author__grid { grid-template-columns: 1fr; gap: 36px; max-width: 460px; margin: 0 auto; }
   .author__photo img { height: 380px; }
+
+  .cert-wrap { grid-template-columns: 1fr; gap: 36px; max-width: 420px; margin: 0 auto; }
 }
 
 /* =============================================
