@@ -387,6 +387,8 @@ svg { display: block; }
 }
 .stats__inner .stat-box:last-child { border-right: none; }
 .stat-box strong { font-family: var(--disp); font-size: 36px; font-weight: 600; color: #fff; letter-spacing: -.02em; line-height: 1; }
+.stat-infinity { display: flex; align-items: center; justify-content: center; }
+.stat-infinity svg { width: 44px; height: 22px; color: #fff; }
 .stat-box span { font-size: 12px; color: rgba(255,255,255,.42); text-transform: uppercase; letter-spacing: .1em; font-weight: 500; }
 
 /* =============================================
