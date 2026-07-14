@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --p:#D6146E; --pd:#B50E5C; --pl:#FCE7F1; --pm:#F472B6; --acc:#FF5CA8;
+    --navy:#0A1836; --navy2:#16295A; --ink:#0A1836;
+    --paper:#F4F6FB; --g900:#0E1A33; --g700:#2A3550; --g600:#55607A; --g400:#8A93A8; --g200:#DDE2EC;
+    --pop:#FFD84D; --lime:#B6F09C; --sky:#7FC4FF;
+    --disp:'Unbounded','Inter',sans-serif;
+  }
+  html,body { font-family:'Inter',sans-serif; color:var(--g700); }
+  body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+  @page { size:210mm 297mm; margin:0; }
+
+  .page {
+    position:relative; width:210mm; height:297mm; overflow:hidden;
+    padding:17mm 16mm; page-break-after:always;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page:last-child { page-break-after:auto; }
+  .page--navy { background:radial-gradient(130% 120% at 80% 5%, #1D3B78 0%, #12295A 42%, #0A1836 100%); color:#fff; }
+  .page--paper { background:var(--paper); }
+  .page--white { background:#fff; }
+
+  /* orbs */
+  .orb { position:absolute; border-radius:50%; filter:blur(70px); opacity:.5; z-index:0; }
+  .orb--1 { width:340px; height:340px; top:-60px; right:-40px; background:radial-gradient(circle,#D6146E,transparent 70%); }
+  .orb--2 { width:280px; height:280px; bottom:-60px; left:-50px; background:radial-gradient(circle,#2E5BC7,transparent 70%); }
+
+  .z { position:relative; z-index:1; }
+
+  /* type */
+  .eyebrow {
+    display:inline-block; font-family:var(--disp); font-size:9pt; font-weight:700;
+    text-transform:uppercase; letter-spacing:.14em; color:var(--g900);
+    background:var(--pop); border:2px solid var(--g900); border-radius:8px;
+    padding:5px 13px; box-shadow:3px 3px 0 var(--g900); transform:rotate(-2deg);
+  }
+  .eyebrow--ghost { color:var(--g900); background:var(--pm); border-color:#fff; box-shadow:3px 3px 0 rgba(255,255,255,.5); }
+  h1.title { font-family:var(--disp); font-weight:800; font-size:40pt; line-height:1.02; letter-spacing:-.02em; color:#fff; }
+  h2.h2 { font-family:var(--disp); font-weight:800; font-size:26pt; line-height:1.05; letter-spacing:-.02em; color:var(--g900); }
+  h2.h2--white { color:#fff; }
+  .accent { color:var(--pm); }
+  .mark { position:relative; white-space:nowrap; z-index:0; }
+  .mark::before { content:''; position:absolute; z-index:-1; left:-.1em; right:-.1em; bottom:.04em; height:.42em; background:var(--pop); border-radius:4px; transform:rotate(-1deg) skewX(-6deg); }
+  .h2--white .mark { color:var(--g900); }
+  .h2--white .mark::before { top:.06em; bottom:.08em; height:auto; left:0; right:0; }
+
+  .lead { font-size:13pt; line-height:1.55; color:rgba(255,255,255,.72); }
+  p.body { font-size:11.5pt; line-height:1.6; color:var(--g700); }
+  .muted { color:var(--g600); }
+
+  /* cards */
+  .card { background:#fff; border:2px solid var(--g900); border-radius:16px; box-shadow:5px 5px 0 var(--g900); padding:18px 20px; }
+  .card--pink { box-shadow:5px 5px 0 var(--p); }
+  .card--pop { box-shadow:5px 5px 0 var(--pop); }
+  .card--lime { box-shadow:5px 5px 0 var(--lime); }
+  .card--sky { box-shadow:5px 5px 0 var(--sky); }
+  .num {
+    font-family:var(--disp); font-weight:800; font-size:15pt; color:var(--g900);
+    width:46px; height:46px; min-width:46px; border:2px solid var(--g900); border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .num--pop{background:var(--pop);} .num--lime{background:var(--lime);} .num--sky{background:var(--sky);} .num--pink{background:var(--pm);}
+  .card h3 { font-family:var(--disp); font-weight:700; font-size:13pt; color:var(--g900); margin-bottom:4px; }
+  .card p { font-size:10.5pt; line-height:1.5; color:var(--g600); }
+
+  .row { display:flex; gap:16px; align-items:flex-start; }
+  .stack { display:flex; flex-direction:column; }
+
+  /* checklist */
+  .check { display:flex; gap:11px; align-items:flex-start; font-size:11pt; line-height:1.5; color:var(--g700); }
+  .check + .check { margin-top:12px; }
+  .check b { color:var(--g900); }
+  .tick { width:22px; height:22px; min-width:22px; border-radius:6px; background:var(--lime); border:2px solid var(--g900); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .tick svg { width:12px; height:12px; }
+
+  /* niche table */
+  .nrow { display:flex; align-items:center; gap:12px; border:2px solid var(--g900); border-radius:12px; padding:11px 14px; }
+  .nrow + .nrow { margin-top:10px; }
+  .nrow .dot { width:26px; height:26px; min-width:26px; border-radius:50%; border:2px solid var(--g900); }
+  .nrow b { font-family:var(--disp); font-size:10.5pt; color:var(--g900); }
+  .nrow span { font-size:10pt; color:var(--g600); }
+
+  /* sticker */
+  .sticker {
+    font-family:var(--disp); font-weight:800; font-size:11pt; color:var(--g900);
+    background:var(--pop); border:2px solid var(--g900); border-radius:12px;
+    padding:8px 14px; box-shadow:3px 3px 0 var(--g900); transform:rotate(-3deg); display:inline-block;
+  }
+
+  /* footer */
+  .foot { position:absolute; left:16mm; right:16mm; bottom:11mm; display:flex; justify-content:space-between; align-items:center; font-size:8.5pt; z-index:2; }
+  .foot .brand { font-family:var(--disp); font-weight:700; }
+  .page--navy .foot { color:rgba(255,255,255,.5); }
+  .page--paper .foot, .page--white .foot { color:var(--g400); }
+  .vk { background:#07F; color:#fff; font-family:var(--disp); font-weight:700; font-size:8pt; padding:2px 6px; border-radius:5px; margin-right:6px; }
+
+  .price-old { font-size:15pt; color:var(--g400); text-decoration:line-through; }
+  .price-new { font-family:var(--disp); font-weight:800; font-size:34pt; color:#fff; letter-spacing:-.03em; }
+  .cta-link { font-family:var(--disp); font-weight:700; font-size:12.5pt; }
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1 — COVER ===================== -->
+<section class="page page--navy">
+  <span class="orb orb--1"></span>
+  <span class="orb orb--2"></span>
+  <div class="z" style="height:100%; display:flex; flex-direction:column;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="vk" style="font-size:11pt; padding:5px 9px;">VK</span>
+      <span style="font-family:var(--disp); font-weight:600; font-size:12pt; color:#fff;">Важдаева Анна · ООО «Инстарт»</span>
+    </div>
+
+    <div style="margin-top:14mm;">
+      <span class="eyebrow">Бесплатный гайд · 2026</span>
+    </div>
+
+    <h1 class="title" style="margin-top:9mm;">
+      ВКонтакте<br/>с нуля до<br/><span class="accent">первых заявок</span>
+    </h1>
+
+    <p class="lead" style="margin-top:8mm; max-width:150mm;">
+      7 шагов, которые приводят первых клиентов — <b style="color:#fff;">без рекламного бюджета</b> и сложных схем.
+      Пошагово, как я объясняю на своём курсе.
+    </p>
+
+    <div style="margin-top:auto; display:flex; align-items:flex-end; gap:20px;">
+      <div class="card card--pink" style="padding:0; overflow:hidden; width:88mm; border-radius:20px; background:#fff;">
+        <img src="author-portrait.jpg" alt="Анна Важдаева" style="width:100%; height:78mm; object-fit:cover; object-position:center 20%; display:block;" />
+      </div>
+      <div class="stack" style="gap:12px; padding-bottom:6mm;">
+        <span class="sticker">7 страниц пользы</span>
+        <div style="font-family:var(--disp); font-weight:700; font-size:12pt; color:#fff; line-height:1.3;">
+          Анна Важдаева<br/><span style="font-size:9.5pt; font-weight:500; color:var(--pm);">специалист по продвижению ВКонтакте</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand" style="color:rgba(255,255,255,.7);">Гайд «ВКонтакте с нуля до первых заявок»</span><span>vk-course · 2026</span></div>
+</section>
+
+<!-- ===================== PAGE 2 — WHY VK ===================== -->
+<section class="page page--paper">
+  <span class="eyebrow eyebrow--ghost" style="color:var(--g900); background:var(--pop);">Вступление</span>
+  <h2 class="h2" style="margin-top:8mm;">Почему <span class="mark">ВКонтакте</span><br/>прямо сейчас</h2>
+  <p class="body" style="margin-top:6mm; max-width:165mm;">
+    Пока все спорят «жив ли SMM», ВКонтакте тихо стал площадкой №1 в России для тех, кто хочет начать зарабатывать на продвижении. Живая аудитория, встроенные инструменты воронок и низкий порог входа — можно стартовать без вложений и уже через пару недель получить первые заявки. Вот 4 причины, почему это работает 👇
+  </p>
+
+  <div style="margin-top:9mm; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div class="card card--pink row"><div class="num num--pop">01</div><div><h3>Тёплая аудитория</h3><p>Люди сидят в сообществах и реагируют на контент — их не нужно «разогревать» с нуля, как в холодной рекламе.</p></div></div>
+    <div class="card card--sky row"><div class="num num--sky">02</div><div><h3>Бесплатные инструменты</h3><p>Senler, чат-боты, рассылки, товары, статистика — всё внутри платформы и большинство функций бесплатны.</p></div></div>
+    <div class="card card--lime row"><div class="num num--lime">03</div><div><h3>Низкий порог входа</h3><p>Не нужен большой бюджет. Первые заявки реально получить органикой — на бесплатных методах продвижения.</p></div></div>
+    <div class="card card--pop row"><div class="num num--pink">04</div><div><h3>Спрос на специалистов</h3><p>Бизнесу нужны те, кто умеет вести и продвигать сообщества. Освоив это — можно брать клиентов на услуги.</p></div></div>
+  </div>
+
+  <div class="card" style="margin-top:9mm; background:var(--navy); color:#fff; border:2px dashed var(--pop); box-shadow:none;">
+    <div class="row" style="align-items:center;">
+      <span class="sticker" style="transform:rotate(-4deg);">Что внутри</span>
+      <p style="font-size:11pt; color:#fff; line-height:1.5;">4 шага упаковки и контента + бесплатное продвижение + воронка в Senler + как выбрать нишу, где реклама точно зайдёт. Забирай и внедряй.</p>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">Гайд «ВКонтакте с нуля до первых заявок»</span><span>02</span></div>
+</section>
+
+<!-- ===================== PAGE 3 — STEP 1 PACKAGING ===================== -->
+<section class="page page--white">
+  <span class="eyebrow">Шаг 1</span>
+  <h2 class="h2" style="margin-top:8mm;">Упаковка, которая<br/>продаёт <span class="mark">сама</span></h2>
+  <p class="body" style="margin-top:6mm; max-width:165mm;">
+    90% новичков сливают трафик, потому что человек заходит в сообщество и… не понимает, что тут продают и почему стоит остаться. Пройдись по этому чек-листу — и твоё сообщество начнёт удерживать людей и вести их к заявке.
+  </p>
+
+  <div class="card card--pink" style="margin-top:8mm;">
+    <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Название с ключевым словом.</b> Не просто «Анна | SMM», а то, что человек ищет: «Продвижение ВКонтакте | Таргетолог».</div></div>
+    <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Статус и описание — про выгоду клиента.</b> Первая строка отвечает: кому и чем ты помогаешь. Без «команда профессионалов с 2015 года».</div></div>
+    <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Обложка с оффером.</b> На баннере — что ты даёшь и призыв. Сделать красиво поможет даже базовая Figma.</div></div>
+    <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Кнопка действия.</b> «Написать сообщение» / «Подписаться на рассылку» — чтобы посетителю было куда нажать.</div></div>
+    <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Закреплённый пост.</b> Твоя витрина: кто ты, кому помогаешь, оффер и как начать. Первое, что видит новый человек.</div></div>
+    <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Виджеты и услуги.</b> Меню, товары/услуги, кейсы — чтобы человек за 10 секунд понял, что можно купить.</div></div>
+  </div>
+
+  <div class="card card--pop row" style="margin-top:7mm; align-items:center;">
+    <div class="num num--pop">💡</div>
+    <p style="font-size:10.5pt; color:var(--g700); line-height:1.5;"><b style="color:var(--g900);">Лайфхак:</b> открой 3 сообщества конкурентов и выпиши, что цепляет и что раздражает. Свою упаковку собери из «цепляет» — минус «раздражает».</p>
+  </div>
+  <div class="foot"><span class="brand">Гайд «ВКонтакте с нуля до первых заявок»</span><span>03</span></div>
+</section>
+
+<!-- ===================== PAGE 4 — STEP 2 CONTENT ===================== -->
+<section class="page page--paper">
+  <span class="eyebrow">Шаг 2</span>
+  <h2 class="h2" style="margin-top:8mm;">Контент, который<br/>ведёт к <span class="mark">заявке</span></h2>
+  <p class="body" style="margin-top:6mm; max-width:165mm;">
+    Хаотичные посты «когда есть настроение» не работают. Работает система рубрик: человек привыкает к тебе, прогревается и в нужный момент покупает. Простая рабочая сетка на неделю 👇
+  </p>
+
+  <div style="margin-top:8mm; display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+    <div class="card card--lime"><div class="num num--lime" style="margin-bottom:10px;">ПН</div><h3>Польза</h3><p>Совет, разбор, инструкция. Показываешь экспертность и даёшь ценность бесплатно.</p></div>
+    <div class="card card--sky"><div class="num num--sky" style="margin-bottom:10px;">СР</div><h3>Вовлечение</h3><p>Вопрос, опрос, история, закулисье. Люди комментируют — алгоритмы поднимают охват.</p></div>
+    <div class="card card--pink"><div class="num num--pink" style="margin-bottom:10px;">ПТ</div><h3>Продажа</h3><p>Оффер, кейс, отзыв, призыв написать. Мягко ведёшь к заявке тех, кто уже прогрет.</p></div>
+  </div>
+
+  <h3 style="font-family:var(--disp); font-weight:700; font-size:14pt; color:var(--g900); margin-top:10mm;">Как спланировать контент за один вечер</h3>
+  <div class="card" style="margin-top:5mm; box-shadow:5px 5px 0 var(--g900);">
+    <div class="check"><span class="tick" style="background:var(--pop);"><b style="font-size:9pt;">1</b></span><div><b>Определи цель.</b> Подписчики, заявки или узнаваемость — цель задаёт весь план.</div></div>
+    <div class="check"><span class="tick" style="background:var(--pop);"><b style="font-size:9pt;">2</b></span><div><b>Пойми аудиторию.</b> Какие боли, желания и привычки? Пиши для конкретного человека.</div></div>
+    <div class="check"><span class="tick" style="background:var(--pop);"><b style="font-size:9pt;">3</b></span><div><b>Собери «скелет» — сетку рубрик.</b> Мысли рубриками, а не отдельными постами.</div></div>
+    <div class="check"><span class="tick" style="background:var(--pop);"><b style="font-size:9pt;">4</b></span><div><b>Заготовь материалы заранее.</b> Хотя бы часть фото/текстов — чтобы не разрываться каждый день.</div></div>
+    <div class="check"><span class="tick" style="background:var(--pop);"><b style="font-size:9pt;">5</b></span><div><b>Смотри статистику.</b> Что заходит — усиливай, что нет — убирай. Корректируй сетку.</div></div>
+  </div>
+  <div class="foot"><span class="brand">Гайд «ВКонтакте с нуля до первых заявок»</span><span>04</span></div>
+</section>
+
+<!-- ===================== PAGE 5 — STEP 3 FREE PROMO ===================== -->
+<section class="page page--white">
+  <span class="eyebrow">Шаг 3</span>
+  <h2 class="h2" style="margin-top:8mm;">Первые заявки<br/><span class="mark">без бюджета</span></h2>
+  <p class="body" style="margin-top:6mm; max-width:165mm;">
+    Реклама — потом. Сначала выжми максимум из бесплатных методов: так ты получишь первые результаты и поймёшь, что «заходит» твоей аудитории, ещё до вложений в таргет.
+  </p>
+
+  <div style="margin-top:8mm; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div class="card card--pink row"><div class="num num--pink">🤝</div><div><h3>Взаимопиар</h3><p>Найди сообщества с похожей аудиторией и обменяйтесь постами. Бесплатный доступ к чужой базе.</p></div></div>
+    <div class="card card--lime row"><div class="num num--lime">💬</div><div><h3>Полезные комментарии</h3><p>Отвечай экспертно в тематических сообществах. Люди переходят в профиль на «того, кто шарит».</p></div></div>
+    <div class="card card--sky row"><div class="num num--sky">📩</div><div><h3>Рассылка в Senler</h3><p>Собирай подписчиков в рассылку и грей их цепочкой сообщений. Бесплатно на старте.</p></div></div>
+    <div class="card card--pop row"><div class="num num--pop">🔥</div><div><h3>Вовлекающие механики</h3><p>Конкурсы, разборы, чек-листы за репост. Люди делятся — охват растёт сам.</p></div></div>
+  </div>
+
+  <div class="card" style="margin-top:9mm; background:var(--navy); color:#fff; border:2px dashed var(--pop); box-shadow:none;">
+    <div class="row" style="align-items:center;">
+      <span class="sticker" style="transform:rotate(-4deg);">Важно</span>
+      <p style="font-size:11pt; color:#fff; line-height:1.5;">Бесплатные методы дают <b style="color:var(--pop);">первые заявки</b>, но не масштаб. Когда поймёшь, что оффер работает — подключаешь таргет и кратно усиливаешь то, что уже приносит результат.</p>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">Гайд «ВКонтакте с нуля до первых заявок»</span><span>05</span></div>
+</section>
+
+<!-- ===================== PAGE 6 — STEP 4 FUNNEL + NICHE ===================== -->
+<section class="page page--paper">
+  <span class="eyebrow">Шаг 4</span>
+  <h2 class="h2" style="margin-top:8mm;">Воронка и <span class="mark">ниша</span></h2>
+  <p class="body" style="margin-top:5mm; max-width:165mm;">
+    Автоворонка в Senler работает 24/7 вместо тебя: человек подписался — и получает цепочку, которая знакомит, прогревает и ведёт к покупке. Простая схема из 3 писем:
+  </p>
+
+  <div style="margin-top:6mm; display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+    <div class="card card--sky"><h3 style="font-size:11pt;">1 · Знакомство</h3><p>Кто ты, чем полезна, что человек получит. Отдаёшь лид-магнит.</p></div>
+    <div class="card card--lime"><h3 style="font-size:11pt;">2 · Прогрев</h3><p>Польза + кейс + закрытие возражений. Строишь доверие.</p></div>
+    <div class="card card--pink"><h3 style="font-size:11pt;">3 · Оффер</h3><p>Предложение + призыв написать. Ведёшь к заявке.</p></div>
+  </div>
+
+  <h3 style="font-family:var(--disp); font-weight:700; font-size:14pt; color:var(--g900); margin-top:9mm;">С какой нишей стартовать</h3>
+  <p class="body muted" style="margin-top:3mm; font-size:10.5pt;">Модерация ВКонтакте одни ниши пропускает легко, другие — почти всегда блокирует. Ориентир для новичка:</p>
+  <div style="margin-top:5mm;">
+    <div class="nrow"><span class="dot" style="background:var(--lime);"></span><div><b>Заходят легко —</b> <span>онлайн-курсы, детские товары, красота, доставка еды, фитнес, товары для дома</span></div></div>
+    <div class="nrow"><span class="dot" style="background:var(--pop);"></span><div><b>Нужны знания правил —</b> <span>медицина, косметология, психология и эзотерика, финансовые услуги</span></div></div>
+    <div class="nrow"><span class="dot" style="background:var(--sky);"></span><div><b>Долгий цикл сделки —</b> <span>недвижимость, автосалоны, крупный B2B (нужен бюджет на тесты)</span></div></div>
+    <div class="nrow"><span class="dot" style="background:#FFC2D1;"></span><div><b>Почти всегда блок —</b> <span>алкоголь и табак, ставки и казино, 18+, «чудо-БАДы», финпирамиды</span></div></div>
+  </div>
+  <div class="card card--pop row" style="margin-top:7mm; align-items:center;">
+    <div class="num num--pop">✅</div>
+    <p style="font-size:10.5pt; color:var(--g700); line-height:1.5;"><b style="color:var(--g900);">Совет новичку:</b> бери нишу с понятной активной аудиторией, умеренным бюджетом и быстрой обратной связью — так первый результат придёт быстрее.</p>
+  </div>
+  <div class="foot"><span class="brand">Гайд «ВКонтакте с нуля до первых заявок»</span><span>06</span></div>
+</section>
+
+<!-- ===================== PAGE 7 — SELLING BLOCK ===================== -->
+<section class="page page--navy">
+  <span class="orb orb--1"></span>
+  <span class="orb orb--2"></span>
+  <div class="z">
+    <span class="eyebrow eyebrow--ghost">Дальше — со мной</span>
+    <h2 class="h2 h2--white" style="margin-top:7mm;">Хочешь пройти<br/>весь путь <span class="mark">по шагам</span>?</h2>
+    <p class="lead" style="margin-top:5mm; max-width:150mm;">
+      Этот гайд — только карта. На курсе <b style="color:#fff;">«Специалист по продвижению ВКонтакте»</b> я веду за руку от нуля до первых клиентов: разбираем каждый шаг на практике.
+    </p>
+
+    <div class="row" style="margin-top:8mm; gap:20px; align-items:stretch;">
+      <div style="flex:1;">
+        <div style="font-family:var(--disp); font-weight:700; font-size:11pt; color:var(--pm); margin-bottom:8px;">Обо мне</div>
+        <div class="stack" style="gap:9px; font-size:10.5pt; color:rgba(255,255,255,.85); line-height:1.4;">
+          <div>★ Автор курса «Специалист по продвижению ВКонтакте»</div>
+          <div>★ Практикующий специалист по таргету и контенту ВК</div>
+          <div>★ Обучение на базе ООО «Инстарт»</div>
+          <div>★ 100+ выпускников уже применяют методику</div>
+          <div>★ 10 модулей авторской программы, обновление 2026</div>
+          <div>★ Именной сертификат по итогам обучения</div>
+        </div>
+      </div>
+      <div class="card" style="width:70mm; padding:0; overflow:hidden; background:#fff; box-shadow:6px 6px 0 var(--p); border-radius:18px;">
+        <img src="banner.jpg" alt="Курс" style="width:100%; height:56mm; object-fit:cover; display:block;" />
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:9mm; background:linear-gradient(160deg,#16295A,#0A1836); border:2px solid var(--pm); box-shadow:6px 6px 0 var(--p);">
+      <div class="row" style="align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+        <div>
+          <div style="display:flex; align-items:baseline; gap:12px;">
+            <span class="price-old">34 900 ₽</span>
+            <span class="price-new">3 490 ₽</span>
+          </div>
+          <div style="font-size:10pt; color:rgba(255,255,255,.6); margin-top:4px;">10 модулей · бонусы · Figma · сертификат · доступ навсегда</div>
+        </div>
+        <span class="sticker" style="font-size:13pt;">−90% сегодня</span>
+      </div>
+    </div>
+
+    <div class="card card--pop" style="margin-top:8mm; background:var(--pop); border:2px solid var(--g900); box-shadow:6px 6px 0 var(--g900);">
+      <div style="text-align:center;">
+        <div style="font-family:var(--disp); font-weight:800; font-size:13pt; color:var(--g900);">Забрать курс со скидкой 90%</div>
+        <div class="cta-link" style="margin-top:6px; color:var(--pd);">murzzsite.github.io/vazdaeva-vk</div>
+        <div style="font-size:10pt; color:var(--g700); margin-top:6px;">или напиши мне слово <b>«СТАРТ»</b> — отправлю доступ и помогу выбрать формат</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand" style="color:rgba(255,255,255,.7);"><span class="vk">VK</span>Важдаева Анна · ООО «Инстарт»</span><span>07</span></div>
+</section>
+
+</body>
+</html>
